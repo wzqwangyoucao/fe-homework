@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="mycss.css">
 </head>
 <body>
-    红：<input type="range"> <br>
-    绿：<input type="range"> <br>
-    蓝：<input type="range">
+    红：<input type="range" max="255" min="0" step="1" onchange="getvalue3(this.name,this.value)"> <br>
+    绿：<input type="range" max="255" min="0" step="1" onchange="getvalue2(this.name,this.value)"> <br>
+    蓝：<input type="range" max="255" min="0" step="1" onchange="getvalue(this.name,this.value)">
+    <div class="show"></div>
+    <script src="myjs.js"></script>
 </body>
 </html>
