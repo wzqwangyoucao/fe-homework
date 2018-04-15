@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>富文本编辑器</h2>
+    
+    <div class="fields">
+        <div class="field">
+          <label>颜色：</label>
+          <input class="bgcolor-Input" type="color" name="" id="">
+        </div>
+    
+        <div class="field">
+          <label>背景：</label>
+          <input type="color" class="color-Input" name="" id="">
+        </div>
+        <div class="field">
+            <label>大小</label>
+            <select class="font-Size" name="" id="">
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="35">35</option>
+                <option value="40" selected>40</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="field">
+            <label for="textInput">内容：</label>
+            <input class="text-Input" id="textInput" type="text" name="" id="">
+        </div>
+
+        <input class="add-btn" type="button" value="确定">
+    </div>
+    <br>
+
+    <div class="displaytext"></div>
+
+    <script src="myjs.js"></script>
+</body>
+</html>

@@ -10,10 +10,25 @@
 <body>
     <!-- 根据自己的理解，完成得挺不错的，因为这一节之前是没讲过事件的 -->
     <!-- 不过尽量不要在html中编写js，可以在js中得到这些引用，然后操作它。 -->
-    红：<input type="range" max="255" min="0" step="1" onchange="getvalue3(this.name,this.value)"> <br>
-    绿：<input type="range" max="255" min="0" step="1" onchange="getvalue2(this.name,this.value)"> <br>
-    蓝：<input type="range" max="255" min="0" step="1" onchange="getvalue(this.name,this.value)">
+    <div class="field">
+        <label for="redLabel">红：</label>
+        <input class="redLabel" id="redLabel" type="range" max="255" min="0" step="1" value="0">
+    </div>
+    
+    <div class="field">
+        <label for="greenLabel">绿：</label>
+        <input class="greenLabel" id="greenLabel" type="range" max="255" min="0" step="1" value="0">
+    </div>
+
+    <div class="field">
+        <label for="blueLabel">蓝：</label>
+        <input class="blueLabel" id="blueLabel" type="range" max="255" min="0" step="1" value="0">
+    </div>
+
+    <input class="add-btn" type="button" value="确定">
+
     <div class="show"></div>
+
     <script src="myjs.js"></script>
 </body>
 </html>

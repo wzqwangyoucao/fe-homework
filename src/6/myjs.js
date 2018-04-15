@@ -1,8 +1,8 @@
-var lable=document.querySelector('.show');
+// var lable=document.querySelector('.show');
 //console.log(lable);
-var red=0;
-var green=0;
-var blue=0;
+// var red=0;
+// var green=0;
+// var blue=0;
 
 // 功能实现得不错！
 // 引外可以有以下改进：
@@ -17,27 +17,28 @@ var blue=0;
 //   var color = 'rgb' + '(' + red + ...
 // 优秀的程序员，都是从一开始就养成好习惯的， 也就是优秀是从一开始就很优秀， 后面几年后就会习惯了，所以很难变好。
 
-function getvalue(range,slider){
-    //document.querySelector('.show').innerHTML=slider;
-    blue=slider;
-    console.log(blue);
-    var color='rgb'+'('+red+','+green+','+blue+')';
-    lable.style.backgroundColor=color;
-    console.log(color);
+var redColorSelect=document.querySelector('.redLabel');
+var greenColorSelect=document.querySelector('.greenLabel');
+var blueColorSelect=document.querySelector('.blueLabel');
+
+function changeColor(){
+    //console.log(redColorSelect);
+    var redColor=redColorSelect.value;
+    //console.log(redColor);
+
+    //console.log(greenColorSelect);
+    var greenColor=greenColorSelect.value;
+    //console.log(greenColor);
+
+    //console.log(blueColorSelect);
+    var blueColor=blueColorSelect.value;
+    //console.log(blueColor);
+
+    var showBox=document.querySelector('.show');
+    showBox.style.backgroundColor='rgb('+redColor+','+greenColor+','+blueColor+')';
+    //console.log('rgb('+redColor+','+greenColor+','+blueColor+')');
 }
-function getvalue2(range,slider){
-    //document.querySelector('.show').innerHTML=slider;
-    green=slider;
-    console.log(blue);
-    var color='rgb'+'('+red+','+green+','+blue+')';
-    lable.style.backgroundColor=color;
-    console.log(color);
-}
-function getvalue3(range,slider){
-    //document.querySelector('.show').innerHTML=slider;
-    red=slider;
-    console.log(blue);
-    var color='rgb'+'('+red+','+green+','+blue+')';
-    lable.style.backgroundColor=color;
-    console.log(color);
-}
+
+redColorSelect.addEventListener("change",changeColor);
+greenColorSelect.addEventListener("change",changeColor);
+blueColorSelect.addEventListener("change",changeColor);
