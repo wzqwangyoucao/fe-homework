@@ -26,8 +26,24 @@ function addText(){
     var text=textInput.value;
     //console.log(text);
 
+    var fontWeight;
+    var fontWeightSelect=document.querySelector('.form-group .choseform .checkbox-bold');
+    if(fontWeightSelect.checked){
+        fontWeight="bold";
+    }
+    else{
+        fontWeight="normal";
+    }ss
+
+    var underLine="none";
+    var underLineSelect=document.querySelector('.form-group .choseform .checkbox-underline');
+    if(underLineSelect.checked){
+        underLine="underline";
+    }
+
+
     var lastHTML=preview.innerHTML;
-    preview.innerHTML=lastHTML+'<span style="color:'+color+';backGround:'+bgColor+';font-size:'+fontSize+'px">'+text+'</span>';
+    preview.innerHTML=lastHTML+'<span style="color:'+color+';backGround:'+bgColor+';text-decoration:'+underLine+';font-weight:'+fontWeight+';font-size:'+fontSize+'px">'+text+'</span>';
 
     textInput.value='';
 }
