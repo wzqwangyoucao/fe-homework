@@ -1,6 +1,9 @@
 function addText(){
     //console.log('hello');
 
+    // 一般来说，我们都会在操作符左右加个空格的，这样会让代码更容易阅读，
+    // 比如 var preview = document.querySelector('.displaytext');
+    // 所以你以后看视频时，也要注意我的格式化，细节也同样重要。
     var preview=document.querySelector('.displaytext');
 
     //console.log(preview);
@@ -33,7 +36,10 @@ function addText(){
     }
     else{
         fontWeight="normal";
-    }ss
+    }
+    // 因为很多时候，都是根据判断来设置一个变量的值，所以js中引入了一个三元运算符来简化上面几句代码的编写：
+    var fontWeight = fontWeightSelect.checked ? 'bold' : 'normal';
+    // 这样之后，代码就简化了不少。
 
     var underLine="none";
     var underLineSelect=document.querySelector('.form-group .choseform .checkbox-underline');
