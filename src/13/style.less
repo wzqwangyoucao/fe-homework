@@ -1,0 +1,136 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-size: 11px;
+    font:italic arial,sans-serif;
+}
+.debug{
+    //border: 1px solid red;
+}
+.clearfix{
+    &:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+.user{
+    position: relative;
+    width: 120px;
+    margin: 10px;
+    .identity{
+        border: 1px solid #ccc;
+    }
+
+    .panel{
+        display: none;
+        width: 100%;
+        padding-left: 10px;
+        box-sizing: border-box;
+        list-style: none;
+        border: 1px solid #ccc;
+        border-top: 0px;
+        position: absolute;
+        background-color: #fff;
+    }
+
+    &.active .panel{
+        display: block;
+    }
+
+    &.active .identity{
+        background-color: #eee;
+    }
+}
+
+
+
+.tab{
+    ul{
+        .debug();
+        .clearfix();
+        list-style: none;
+        height: 40px;
+        background-color: black;
+        width: 500px;
+        border-radius: 5px;
+        li{
+            .debug();
+            padding:0px 5px;
+            float: left;
+            color: #fff;
+            font-size: 20px;
+            line-height: 40px;
+            border-right: 0.1px solid #aaa;
+           &.active{
+                &.red{
+                    background-color: red;
+                    border-radius: 5px 0px 0px 5px;
+                }
+                &.orange{
+                    background-color: orange;
+                }
+                &.yellow{
+                    background-color: yellow
+                }
+                &.olive{
+                    background-color: olive;
+                }
+                &.green{
+                    background-color: green;
+                }
+                &.teal{
+                    background-color: teal;
+                }
+            }
+        }
+    }
+}
+
+.addborder{
+    border: 1px solid black;
+    border-bottom:none;
+}
+
+.myteb{
+    margin: 10px;
+    .menu{
+        .debug();
+        .clearfix();
+        list-style: none;
+        li{
+            float: left;
+            font-size: 10px;
+            padding: 0px 10px;
+            border-bottom: 1px solid black;
+            &.active{
+                &.first{
+                    .addborder();
+                }
+                &.second{
+                    .addborder();
+                }
+                &.third{
+                    .addborder();
+                }
+            }
+        }
+    }
+    .show{
+        list-style: none;
+        position: relative;
+        li{
+            &:first-child{
+                display: block;
+            }
+            position: absolute;
+            border: 1px solid black;
+            border-top:none;
+            display: none;
+            width: 140.4px;
+        }
+    }
+}
