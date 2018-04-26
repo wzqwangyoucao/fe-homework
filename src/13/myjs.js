@@ -2,12 +2,19 @@ var user = document.querySelector('.user');
 var panel = user.querySelector('.user .panel');
 var identity = user.querySelector('.user .identity')
 
+// 这个用户菜单实现得很不错
 user.addEventListener('click', function () {
     if (user.classList.contains('active')) {
         user.classList.remove('active');
     } else {
         user.classList.add('active');
     }
+    // 上述语句也可以简化为, 可以去学习下toggle的用法
+    // user.classList.toggle('active');
+
+    // 上述也可以优化为:
+    // var has = user.classList.contains('active');
+    // user.classList[has ? 'remove' : 'add']('active');
 });
 
 
@@ -16,6 +23,9 @@ user.addEventListener('click', function () {
 readyAddEvn();
 
 function readyAddEvn() {
+    // 这个菜单呢，它只是给每个项点击时添加上active
+    // 没有移掉非当前项的active状态
+    // 需要重构下，否则现在击时行为会和预期不一样
     var tab = document.querySelector('.tab');
     var lis = tab.querySelectorAll('li');
     for (var i = 0; i < lis.length; i++) {
@@ -74,6 +84,8 @@ function myAddEventListen(i) {
 
 defautStyle();
 
+// 函数名可以最好使用动词，或动宾短语，比如 setDefaultStyle，或者initDefaultStyle 都可以。
+// defaultStyle这个是名词，一般可用于实现一个组件，或者高阶组件等。
 function defautStyle() {
     mylis[0].classList.add('active');
     myshowlis[0].style.display = 'block';
