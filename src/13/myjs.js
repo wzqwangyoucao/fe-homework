@@ -24,13 +24,15 @@ function readyAddEvn() {
     }
 }
 
+// 这个i的命名最好改得更有意义些
+// 一些i这个变量只留给循环变量
 function addEventListen(i) {
     i.addEventListener('click', function () {
         if (i.classList.contains('active')) {
             i.classList.remove('active');
         } else {
             i.classList.add('active');
-        };
+        };  // 这里不应该加分号
     })
 };
 
@@ -46,6 +48,8 @@ var myshowlis = show.querySelectorAll('li');
 readyAddMyEvn();
 
 function readyAddMyEvn() {
+    // 循环变量尽量用常用的变量名，比如 i 或 index都是不错的
+    // 这样阅读时会非常方便
     for (var a = 0; a < mylis.length; a++) {
         console.log(mylis[a]);
         myAddEventListen(a);
