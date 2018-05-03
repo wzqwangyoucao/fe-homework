@@ -26,8 +26,6 @@ function readyAddEvn() {
     // 这个菜单呢，它只是给每个项点击时添加上active
     // 没有移掉非当前项的active状态
     // 需要重构下，否则现在击时行为会和预期不一样
-    var tab = document.querySelector('.tab');
-    var lis = tab.querySelectorAll('li');
     for (var i = 0; i < lis.length; i++) {
         addEventListen(lis[i]);
         lis[i].innerHTML = lis[i].innerHTML + ' ' + i;
