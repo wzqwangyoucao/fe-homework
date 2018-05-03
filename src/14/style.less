@@ -1,0 +1,98 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.clearfix{
+    &:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+.addborder{
+    border: 1px solid black;
+    border-color: #000 #000 #fff #000;
+    margin-bottom: -2px;
+}
+.myteb{
+    margin: 10px;
+    .menu,.navs{
+        list-style: none;
+        .clearfix();
+        li{
+            float: left;
+            font-size: 10px;
+            padding: 2px 10px;
+            background-color: #fff;
+            //border: 1px solid red;
+            border: 0px;
+            border-radius: 5px 5px 0px 0px;
+            &.active{
+                &.first{
+                    .addborder();
+                }
+                &.second{
+                    .addborder();
+                }
+                &.third{
+                    .addborder();
+                }
+            }
+        }
+    }
+    .show,.panel{
+        list-style: none;
+        li{
+            padding: 3px 0px;
+            border-radius: 0px 4px 4px 4px;
+            &:first-child{
+                display: block;
+            }
+            border: 1px solid black;
+            display: none;
+            width: 300px;
+        }
+    }
+}
+
+.tab,.mytab{
+    margin: 10px;
+    ul{
+        .clearfix();
+        list-style: none;
+        height: 40px;
+        background-color: black;
+        width: 500px;
+        border-radius: 5px;
+        li{
+            padding:0px 5px;
+            float: left;
+            color: #fff;
+            font-size: 20px;
+            line-height: 40px;
+            border-right: 0.1px solid #aaa;
+           &.active{
+                &.red{
+                    background-color: red;
+                    border-radius: 5px 0px 0px 5px;
+                }
+                &.orange{
+                    background-color: orange;
+                }
+                &.yellow{
+                    background-color: yellow
+                }
+                &.olive{
+                    background-color: olive;
+                }
+                &.green{
+                    background-color: green;
+                }
+                &.teal{
+                    background-color: teal;
+                }
+            }
+        }
+    }
+}

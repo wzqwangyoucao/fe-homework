@@ -4,11 +4,7 @@ var identity = user.querySelector('.user .identity')
 
 // 这个用户菜单实现得很不错
 user.addEventListener('click', function () {
-    if (user.classList.contains('active')) {
-        user.classList.remove('active');
-    } else {
-        user.classList.add('active');
-    }
+    user.classList[user.classList.contains('active') ? 'remove' : 'add']('active');
     // 上述语句也可以简化为, 可以去学习下toggle的用法
     // user.classList.toggle('active');
 
@@ -19,6 +15,9 @@ user.addEventListener('click', function () {
 
 
 
+
+var tab = document.querySelector('.tab');
+var lis = tab.querySelectorAll('li');
 
 readyAddEvn();
 
@@ -34,13 +33,12 @@ function readyAddEvn() {
 
 // 这个i的命名最好改得更有意义些
 // 一些i这个变量只留给循环变量
-function addEventListen(i) {
-    i.addEventListener('click', function () {
-        if (i.classList.contains('active')) {
-            i.classList.remove('active');
-        } else {
-            i.classList.add('active');
-        };  // 这里不应该加分号
+function addEventListen(index) {
+    index.addEventListener('click', function () {
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].classList.remove('active')
+        }
+        index.classList.add('active');
     })
 };
 
@@ -58,9 +56,9 @@ readyAddMyEvn();
 function readyAddMyEvn() {
     // 循环变量尽量用常用的变量名，比如 i 或 index都是不错的
     // 这样阅读时会非常方便
-    for (var a = 0; a < mylis.length; a++) {
-        console.log(mylis[a]);
-        myAddEventListen(a);
+    for (var i = 0; i < mylis.length; i++) {
+        console.log(mylis[i]);
+        myAddEventListen(i);
     }
 }
 
@@ -80,11 +78,11 @@ function myAddEventListen(i) {
 };
 
 
-defautStyle();
+setDefautStyle()
 
 // 函数名可以最好使用动词，或动宾短语，比如 setDefaultStyle，或者initDefaultStyle 都可以。
 // defaultStyle这个是名词，一般可用于实现一个组件，或者高阶组件等。
-function defautStyle() {
+function setDefautStyle() {
     mylis[0].classList.add('active');
     myshowlis[0].style.display = 'block';
 }
