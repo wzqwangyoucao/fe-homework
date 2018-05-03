@@ -1,4 +1,4 @@
-function addText(){
+function addText() {
     //console.log('hello');
 
     // 一般来说，我们都会在操作符左右加个空格的，这样会让代码更容易阅读，
@@ -30,11 +30,10 @@ function addText(){
     //console.log(text);
 
     var fontWeight;
-    var fontWeightSelect=document.querySelector('.form-group .choseform .checkbox-bold');
-    if(fontWeightSelect.checked){
+    var fontWeightSelect = document.querySelector('.form-group .choseform .checkbox-bold');
+    if (fontWeightSelect.checked) {
         fontWeight = "bold";
-    }
-    else{
+    } else {
         fontWeight = "normal";
     }
     // 因为很多时候，都是根据判断来设置一个变量的值，所以js中引入了一个三元运算符来简化上面几句代码的编写：
@@ -43,23 +42,26 @@ function addText(){
 
     var underLine = "none";
     var underLineSelect = document.querySelector('.form-group .choseform .checkbox-underline');
-    if(underLineSelect.checked){
+    if (underLineSelect.checked) {
         underLine = "underline";
     }
 
-
-    var lastHTML = preview.innerHTML;
-    preview.innerHTML = lastHTML+'<span style="color:'+color+';backGround:'+bgColor+';text-decoration:'+underLine+';font-weight:'+fontWeight+';font-size:'+fontSize+'px">'+text+'</span>';
+    if (!text.trim()) {
+        alert('请输入');
+    } else {
+        var lastHTML = preview.innerHTML;
+        preview.innerHTML = lastHTML + '<span style="color:' + color + ';backGround:' + bgColor + ';text-decoration:' + underLine + ';font-weight:' + fontWeight + ';font-size:' + fontSize + 'px">' + text + '</span>';
+    }
 
     textInput.value = '';
 }
 
 
-function log(){        //函数
+function log() { //函数
     console.log('1');
 }
 //log();
 
-var addbtn = document.querySelector('.form-group .add-btn');//事件监听
+var addbtn = document.querySelector('.form-group .add-btn'); //事件监听
 //console.log(addbtn);
-addbtn.addEventListener('click',addText);
+addbtn.addEventListener('click', addText);
