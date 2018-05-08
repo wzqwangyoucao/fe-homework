@@ -78,7 +78,7 @@ function myAddEventListen(i) {
 };
 
 
-setDefautStyle()
+setDefautStyle();
 
 // 函数名可以最好使用动词，或动宾短语，比如 setDefaultStyle，或者initDefaultStyle 都可以。
 // defaultStyle这个是名词，一般可用于实现一个组件，或者高阶组件等。
