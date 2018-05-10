@@ -32,6 +32,7 @@ bigtext.addEventListener('blur', function () {
             var li = document.createElement('li');
             li.className = 'dontkown';
             li.innerHTML = lis[i].innerHTML;
+            attachLiEvent(li);
             var shownowords = mydocument.querySelector('.nowords');
             var shownowordsli = shownowords.querySelector('ul');
             shownowordsli.appendChild(li);
@@ -45,26 +46,30 @@ var shownowords = mydocument.querySelector('.nowords');
 
 var shownowordsli = shownowords.querySelector('ul');
 
-var shownowordslis = shownowordsli.querySelectorAll('li');
+// var shownowordslis = shownowordsli.querySelectorAll('li');
 
-console.log(shownowordslis);
+// for (var index = 0; index < shownowordslis.length; index++) {
+//     addEveclick(index);
+//     console.log(index);
+// };
 
-for (var index = 0; index < shownowordslis.length; index++) {
-    addEveclick(index);
-    console.log(index);
-};
+// function addEveclick(index) {
+//   attachLiEvent(shownowordslis[index]);
+// }
 
-function addEveclick(index) {
-    shownowordslis[index].addEventListener('click', function () {
-        for (var myindex = 0; i < shownowordslis.length; myindex++) {
+
+function attachLiEvent(li) {
+    li.addEventListener('click', function () {
+        var shownowordslis = shownowordsli.querySelectorAll('li');
+        for (var i = 0; i < shownowordslis.length; i++) {
             //console.log('第'+myindex+'循环');
             //console.log(shownowordslis[myindex]);
             //console.log(shownowordslis.length);
             //console.log(shownowordslis[myindex].classList.contains('active'));
-            if (shownowordslis[myindex].classList.contains('active')) {
-                shownowordslis[myindex].classList.remove('active');
+            if (shownowordslis[i].classList.contains('active')) {
+                shownowordslis[i].classList.remove('active');
             }
         }
-        shownowordslis[index].classList.add('active');
+        li.classList.add('active');
     });
 }
