@@ -51,6 +51,11 @@ function initialTab(index, options) {
         lis[index].addEventListener('click', function () {
             for (var i = 0; i < lis.length; i++) {
                 lis[i].classList.remove('active');
+                // 这个判断可以简化为
+                // 有一小节叫真真假假的讲这个点，可以用起来
+                // if (!show) {
+                //   ...
+                // }
                 if (show != null) {
                     showlis[i].style.display = 'none';
                 }
@@ -70,4 +75,5 @@ function initialTab(index, options) {
         }
     }
     //menu.querySelector('li.actives').dispatchEvent(event);为什么不直接这样写
+    // 可以这么写，只是当选择器变得可配置后，这样写就会不适用了
 }
