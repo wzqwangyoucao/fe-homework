@@ -21,10 +21,10 @@ function initialTab(index, options) {
     options = options || {};
 
     var menu = index.querySelector((options.menuSelector) || '.menu');
-    console.log((options.menuSelector) || '.menu');
-    console.log(menu);
+    //console.log((options.menuSelector) || '.menu');
+    //console.log(menu);
     var lis = menu.querySelectorAll('li');
-    console.log(lis);
+    //console.log(lis);
     // if (!menuSelector) {
     //     menu = index.querySelector('.menu');
     // } else {

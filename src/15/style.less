@@ -18,20 +18,36 @@
         label{
             display: block;
         }
+        .words{
+            height: 124px;
+            width: 376px;
+            border: 0.9px solid  rgb(197, 197, 197);
+            overflow-y: auto;
+        }
         div.show-word{
+            //position: relative;
             .clearfix();
             height: 124px;
             width: 380px;
             border: 0.9px solid  rgb(197, 197, 197);
             box-sizing: border-box;
             .debug();
-            .words{
+            overflow-y: auto;
+            .nowords{
                 height: 124px;
-                width: 328px;
+                width: 310px;
                 float: left;
                 .debug();
+                ul{
+                    list-style: none;
+                    li.active{
+                        background-color: blue;
+                    }
+                }
             }
             .btn-crl{
+                position: fixed;
+                left: 320px;
                 .clearfix();
                 width: 50px;
                 float: right;

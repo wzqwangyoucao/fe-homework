@@ -1,5 +1,5 @@
 var tab = document.querySelectorAll('.tab');
-var myteb = document.querySelector('.myteb');
+var myteb = document.querySelector('.mytab');
 AddReady();
 
 function AddReady() {
