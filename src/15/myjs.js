@@ -32,8 +32,6 @@ bigtext.addEventListener('blur', function () {
             var li = document.createElement('li');
             li.className = 'dontkown';
             li.innerHTML = lis[i].innerHTML;
-            //console.log(lis[i].innerHTML);
-            //console.log(li);
             var shownowords = mydocument.querySelector('.nowords');
             var shownowordsli = shownowords.querySelector('ul');
             shownowordsli.appendChild(li);
