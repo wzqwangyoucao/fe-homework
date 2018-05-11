@@ -32,20 +32,38 @@ bigtext.addEventListener('blur', function () {
             var li = document.createElement('li');
             li.className = 'dontkown';
             li.innerHTML = lis[i].innerHTML;
-            attachLiEvent(li);
+            attachLiEvent(li); //添加双击事件
             var shownowords = mydocument.querySelector('.nowords');
             var shownowordsli = shownowords.querySelector('ul');
-            shownowordsli.appendChild(li);
-            //console.log(shownowords);
-
+            var shownowordslis = shownowordsli.querySelectorAll('li');
+            /**判断是否单词重复，重复则不添加 */
+            if (isRepeat(i)) {
+                console.log(isRepeat(i));
+                console.log(li);
+                shownowordsli.appendChild(li);
+                //console.log(shownowords);
+            }
+            /**单词重复判断的函数 */
+            function isRepeat(i) {
+                console.log(i);
+                console.log(lis[i].innerHTML);
+                for (var index = 0; index < shownowordslis.length; index++) {
+                    console.log(shownowordslis[index]);
+                    if (shownowordslis[index].innerHTML == lis[i].innerHTML) {
+                        console.log('相等');
+                        return false; //相等
+                    } else {
+                        console.log('不想等');
+                    }
+                }
+                return true;
+            }
         })
     }
 });
 
 var shownowords = mydocument.querySelector('.nowords');
-
 var shownowordsli = shownowords.querySelector('ul');
-
 // var shownowordslis = shownowordsli.querySelectorAll('li');
 
 // for (var index = 0; index < shownowordslis.length; index++) {
@@ -57,7 +75,7 @@ var shownowordsli = shownowords.querySelector('ul');
 //   attachLiEvent(shownowordslis[index]);
 // }
 
-
+/* 添加事件函数，点击进行*/
 function attachLiEvent(li) {
     li.addEventListener('click', function () {
         var shownowordslis = shownowordsli.querySelectorAll('li');
@@ -72,4 +90,65 @@ function attachLiEvent(li) {
         }
         li.classList.add('active');
     });
+}
+
+
+var showword = document.querySelector('.field .show-word');
+var button = showword.querySelector('.btn-crl');
+var up = button.querySelector('.up');
+var down = button.querySelector('.down');
+var mydelete = button.querySelector('.delete');
+
+mydelete.addEventListener('click', function () {
+    var shownowords = mydocument.querySelector('.nowords');
+    var shownowordsli = shownowords.querySelector('ul');
+    var shownowordslis = shownowordsli.querySelectorAll('li');
+    if (containActive()) {
+        var a = containActive();
+        //console.log(a);
+        shownowordsli.removeChild(shownowordslis[a - 1]);
+    }
+});
+
+up.addEventListener('click', function () {
+    var shownowords = mydocument.querySelector('.nowords');
+    var shownowordsli = shownowords.querySelector('ul');
+    var shownowordslis = shownowordsli.querySelectorAll('li');
+    if (containActive()) {
+        var a = containActive();
+        console.log(a);
+        if (shownowordslis[a - 1] && shownowordslis[a - 2]) {
+            shownowordsli.insertBefore(shownowordslis[a - 1], shownowordslis[a - 2]);
+        }
+    } else {
+        alert('错误');
+    }
+});
+
+down.addEventListener('click', function () {
+    var shownowords = mydocument.querySelector('.nowords');
+    var shownowordsli = shownowords.querySelector('ul');
+    var shownowordslis = shownowordsli.querySelectorAll('li');
+    if (containActive()) {
+        var a = containActive();
+        if (shownowordslis[a - 1] && shownowordslis[a]) {
+            shownowordsli.insertBefore(shownowordslis[a], shownowordslis[a - 1]);
+        } else {
+            alert('错误');
+        }
+    }
+});
+
+function containActive() {
+    var shownowords = mydocument.querySelector('.nowords');
+    var shownowordsli = shownowords.querySelector('ul');
+    var shownowordslis = shownowordsli.querySelectorAll('li');
+    //console.log('1');
+    //console.log(shownowordslis);
+    for (var index = 0; index < shownowordslis.length; index++) {
+        if (shownowordslis[index].classList.contains('active')) {
+            //console.log(index);
+            return index + 1;
+        }
+    }
 }
