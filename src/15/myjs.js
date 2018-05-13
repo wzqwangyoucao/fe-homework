@@ -140,28 +140,30 @@ down.addEventListener('click', function () {
     }
 });
 
-window.addEventListener('beforeunload',function(){
+window.addEventListener('beforeunload', function () {
     var shownowords = mydocument.querySelector('.nowords');
     var shownowordsli = shownowords.querySelector('ul');
     var shownowordslis = shownowordsli.querySelectorAll('li');
-    var mystr=[],str;
-    for(var index=0;index<shownowordslis.length;index++){
-        mystr[index]=shownowordslis[index].innerHTML;
+    var mystr = [],
+        str;
+    for (var index = 0; index < shownowordslis.length; index++) {
+        mystr[index] = shownowordslis[index].innerHTML;
     }
-    str_pretty1 = JSON.stringify(mystr);//转为json字符串
-    localStorage.setItem('myobject',str_pretty1);
+    str_pretty1 = JSON.stringify(mystr); //转为json字符串
+    localStorage.setItem('myobject', str_pretty1);
 });
-window.addEventListener('load',function(){
-    var locolwords =localStorage.getItem('myobject');
-    var numlocolwords=JSON.parse(locolwords);
-    for(var index=0;index<numlocolwords.length;index++){
+
+window.addEventListener('load', function () {
+    var locolwords = localStorage.getItem('myobject');
+    var numlocolwords = JSON.parse(locolwords);
+    for (var index = 0; index < numlocolwords.length; index++) {
         var shownowords = mydocument.querySelector('.nowords');
         var shownowordsli = shownowords.querySelector('ul');
         var shownowordslis = shownowordsli.querySelectorAll('li');
         var li = document.createElement('li');
-            li.className = 'dontkown';
-            li.innerHTML = numlocolwords[index];
-            shownowordsli.appendChild(li);
+        li.className = 'dontkown';
+        li.innerHTML = numlocolwords[index];
+        shownowordsli.appendChild(li);
     }
 })
 // mysave.addEventListener('click',function(){
