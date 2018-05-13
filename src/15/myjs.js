@@ -146,22 +146,18 @@ mysave.addEventListener('click',function(){
     var shownowordslis = shownowordsli.querySelectorAll('li');
     var mystr,str;
     for(var index=0;index<shownowordslis.length;index++){
-        if(index==shownowordslis.length-1){
-            mystr = index+':'+shownowordslis[index];
-        }
-        else{
-            mystr = index+':'+shownowordslis[index]+','+mystr;
+        if(index==0){
+            mystr='"'+index+'"'+':'+'"'+shownowordslis[index].innerHTML+'"';
+        }else{
+            mystr = mystr+'"'+index+'"'+':'+'"'+shownowordslis[index].innerHTML+'"';
         }
     }
     console.log(mystr);
     str={mystr};
     console.log(str);
     str_pretty1 = JSON.stringify(str);//转为json字符串
-    console.log(typeof(str_pretty1));
-    console.log(str_pretty1);
     var myobject = JSON.parse(str_pretty1)//转为对象
-    var myStorage = localStorage;
-    myStorage.setItem(myobject);
+    localStorage.setItem(myobject);
 });
 
 function containActive() {
