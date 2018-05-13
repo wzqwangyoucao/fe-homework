@@ -98,6 +98,7 @@ var button = showword.querySelector('.btn-crl');
 var up = button.querySelector('.up');
 var down = button.querySelector('.down');
 var mydelete = button.querySelector('.delete');
+var mysave = button.querySelector('.save');
 
 mydelete.addEventListener('click', function () {
     var shownowords = mydocument.querySelector('.nowords');
@@ -137,6 +138,30 @@ down.addEventListener('click', function () {
             alert('错误');
         }
     }
+});
+
+mysave.addEventListener('click',function(){
+    var shownowords = mydocument.querySelector('.nowords');
+    var shownowordsli = shownowords.querySelector('ul');
+    var shownowordslis = shownowordsli.querySelectorAll('li');
+    var mystr,str;
+    for(var index=0;index<shownowordslis.length;index++){
+        if(index==shownowordslis.length-1){
+            mystr = index+':'+shownowordslis[index];
+        }
+        else{
+            mystr = index+':'+shownowordslis[index]+','+mystr;
+        }
+    }
+    console.log(mystr);
+    str={mystr};
+    console.log(str);
+    str_pretty1 = JSON.stringify(str);//转为json字符串
+    console.log(typeof(str_pretty1));
+    console.log(str_pretty1);
+    var myobject = JSON.parse(str_pretty1)//转为对象
+    var myStorage = localStorage;
+    myStorage.setItem(myobject);
 });
 
 function containActive() {
