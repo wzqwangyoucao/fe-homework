@@ -1,0 +1,67 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.clearfix{
+    &:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+.debug{
+    //border: 1px solid red;
+}
+.ui.form{
+    margin: 10px;
+    .field{
+        label{
+            display: block;
+        }
+        .words{
+            height: 124px;
+            width: 376px;
+            border: 0.9px solid  rgb(197, 197, 197);
+            overflow-y: auto;
+        }
+        div.show-word{
+            //position: relative;
+            .clearfix();
+            height: 124px;
+            width: 380px;
+            border: 0.9px solid  rgb(197, 197, 197);
+            box-sizing: border-box;
+            .debug();
+            overflow-y: auto;
+            .nowords{
+                height: 124px;
+                width: 310px;
+                float: left;
+                .debug();
+                ul{
+                    list-style: none;
+                    li.active{
+                        background-color: blue;
+                    }
+                }
+            }
+            .btn-crl{
+                position: fixed;
+                left: 320px;
+                .clearfix();
+                width: 50px;
+                float: right;
+                .debug();
+                button{
+                    float: right;
+                    margin: 1px 3px;
+                    width: 40px;
+                    height: 28px;
+                    font-size: 11px;
+                    border-radius: 3px;
+                    border: 0px;
+                }
+            }
+        }
+    }
+}

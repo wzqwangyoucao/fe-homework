@@ -144,8 +144,7 @@ window.addEventListener('beforeunload', function () {
     var shownowords = mydocument.querySelector('.nowords');
     var shownowordsli = shownowords.querySelector('ul');
     var shownowordslis = shownowordsli.querySelectorAll('li');
-    var mystr = [],
-        str;
+    var mystr = [],str;
     for (var index = 0; index < shownowordslis.length; index++) {
         mystr[index] = shownowordslis[index].innerHTML;
     }
