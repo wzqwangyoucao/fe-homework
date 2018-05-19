@@ -25,6 +25,11 @@ function blur() {
 function getWords() {
     var artical = bigarea.value;
     var words = artical.split(' ');
+    // 这里直接使用innerHTML拼接，会有两个问题
+    // 1. 当多次失去焦点时，短文本里面的内容会重复，这应该算一个bug
+    // 2. 多次设置innerHTML，有可能会引发效率问题，相当于每拼接一下就要渲染一下页面
+    //   （这个问题有可能不存在，因为浏览器会做优化）
+    //   比较好的做法，是使用一个变量来保存html字符串，最后只设置一次innerHTML
     for (var index = 0; index < words.length; index++) {
         if (isWord(words[index])) {
             shortarea.innerHTML += '<span>' + words[index] + ' ' + '</span>';
@@ -42,6 +47,20 @@ function isWord(word) {
 function dblclick() {
     var wordspan = shortarea.querySelectorAll('span');
     for (var index = 0; index < wordspan.length; index++) {
+        // 1. 也可以直接将wordspan传给下面这个函数，比如
+        //    addDBlcick(wordspan[index]);
+        // 2. 或者将下面的函数写在for语句旁边，和我课上讲的一样
+        //  这样就可以直接使用wordspan了，不需要重新取。
+        // 3. 尝试在for语句内使用一个iife，这样就不需要单独写在for语句旁边了:
+        // 你可以使用所学的变量是函数作用域的来分析和理解下面代码片段
+        /*
+          (function() {
+            var span = wordspan[index];
+            span.addEventListener('dblclick', function() {
+              addli(span.innerHTML);
+            });
+          })();
+        */
         addDBlcick(index);
     }
 }
@@ -76,6 +95,8 @@ function addclick(myli) {
     });
 }
 
+// 这个函数实现逻辑没问题
+// 不过函数名含义和返回值之间刚好弄反了
 function isRepeat(i) {
     var nowordsli = nowordsul.querySelectorAll('li');
     for (var index = 0; index < nowordsli.length; index++) {
@@ -86,6 +107,11 @@ function isRepeat(i) {
     return true;
 }
 
+
+// 功能没有问题，不过实现上把位置先+1， 然后使用时再-1，其实比较容易弄错
+// 我觉得反而不如返回真实位置，如果找不到，就返回-1。
+// 数组里面有个方法，叫 indexOf， 用来查找指定元素在数组中的位置的，找不到就是返回-1。
+// 很多模式可以通用，保持一致，会更有助于理解。
 function containActive() {
     var nowordsli = nowordsul.querySelectorAll('li');
     for (var index = 0; index < nowordsli.length; index++) {
