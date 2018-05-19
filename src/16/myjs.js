@@ -30,13 +30,15 @@ function getWords() {
     // 2. 多次设置innerHTML，有可能会引发效率问题，相当于每拼接一下就要渲染一下页面
     //   （这个问题有可能不存在，因为浏览器会做优化）
     //   比较好的做法，是使用一个变量来保存html字符串，最后只设置一次innerHTML
+    var myhtml = shortarea.innerHTML;
     for (var index = 0; index < words.length; index++) {
         if (isWord(words[index])) {
-            shortarea.innerHTML += '<span>' + words[index] + ' ' + '</span>';
+            myhtml += '<span>' + words[index] + ' ' + '</span>';
         } else {
-            shortarea.innerHTML += words[index];
+            myhtml += words[index];
         }
     }
+    shortarea.innerHTML = myhtml;
     dblclick();
 }
 
@@ -61,14 +63,14 @@ function dblclick() {
             });
           })();
         */
-        addDBlcick(index);
+        addDBlcick(wordspan[index]);
     }
 }
 
 function addDBlcick(i) {
-    var wordspan = shortarea.querySelectorAll('span');
-    wordspan[i].addEventListener('dblclick', function () {
-        addli(wordspan[i].innerHTML);
+    //var wordspan = shortarea.querySelectorAll('span');
+    i.addEventListener('dblclick', function () {
+        addli(i.innerHTML);
     });
 }
 
@@ -77,8 +79,8 @@ function addli(i) {
     myli.className = 'dontknow';
     myli.innerHTML = i;
     addclick(myli);
-    if (isRepeat(i)) {
-        console.log(isRepeat(i));
+    if (isNotRepeat(i)) {
+        console.log(isNotRepeat(i));
         nowordsul.appendChild(myli);
     }
 }
@@ -97,7 +99,7 @@ function addclick(myli) {
 
 // 这个函数实现逻辑没问题
 // 不过函数名含义和返回值之间刚好弄反了
-function isRepeat(i) {
+function isNotRepeat(i) {
     var nowordsli = nowordsul.querySelectorAll('li');
     for (var index = 0; index < nowordsli.length; index++) {
         if (nowordsli[index].innerHTML == i) {
@@ -116,16 +118,17 @@ function containActive() {
     var nowordsli = nowordsul.querySelectorAll('li');
     for (var index = 0; index < nowordsli.length; index++) {
         if (nowordsli[index].classList.contains('active')) {
-            return index + 1;
+            return index;
         }
     }
+    return -1;
 }
 
 deleteword();
 function deleteword() {
     mydelete.addEventListener('click', function () {
-        if (containActive()) {
-            var realindex = containActive() - 1;
+        if (containActive()!=-1) {
+            var realindex = containActive();
             var nowordsli = nowordsul.querySelectorAll('li');
             nowordsul.removeChild(nowordsli[realindex]);
         }
@@ -134,10 +137,10 @@ function deleteword() {
 wordUp();
 function wordUp(){
     up.addEventListener('click',function(){
-        if(containActive()){
+        if(containActive()!=-1){
             var a = containActive();
             var nowordsli = nowordsul.querySelectorAll('li');
-            nowordsul.insertBefore(nowordsli[a - 1], nowordsli[a - 2]);
+            nowordsul.insertBefore(nowordsli[a], nowordsli[a - 1]);
         }
     })
 }
@@ -145,10 +148,10 @@ function wordUp(){
 wordDown();
 function wordDown(){
     down.addEventListener('click',function(){
-        if(containActive()){
+        if(containActive()!=-1){
             var a = containActive();
             var nowordsli = nowordsul.querySelectorAll('li');
-            nowordsul.insertBefore(nowordsli[a], nowordsli[a - 1]);
+            nowordsul.insertBefore(nowordsli[a], nowordsli[a - 2]);
         }
     })
 };
