@@ -1,0 +1,49 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.clearfix{
+    &:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+.debug{
+    border: 1px solid red;
+}
+.all{
+    .headimg{
+        .debug();
+        height: 80px;
+        background-color: #d0ebf8;
+        .contentimg{
+            width: 990px;
+            margin: 0 auto;
+            a{
+                .debug();
+                margin: 0 auto;
+                display: block;
+                height: 80px;
+                width: 100%;
+                background: url(../img/linzhiling2.jpg);
+                background-size: 100% 100%;
+            }
+        }
+    }
+    .navigation{
+        height: 30px;
+        background-color: #e3e4e5;
+        .area{
+            //.debug();
+            float: left;
+            color: #999;
+            font-size: 11px;
+        }
+    }
+    
+    .button{
+        height: 2000px;
+    }
+}
