@@ -1,6 +1,7 @@
 var myteb = document.querySelector('.myteb');
 var hide = myteb.querySelector('.select');
 
+
 mySwitch();
 function mySwitch(){
     myteb.addEventListener('click',function(e){
